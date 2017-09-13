@@ -277,9 +277,9 @@ Devise.setup do |config|
 end
 
 Devise.setup do |config|
-  config.omniauth :facebook, 'ENV["facebook_app_id"]', 'ENV["facebook_app_secret"]'
+  config.omniauth :facebook, '113113889340148', '632afdf4eb31d0c9e8e71c0726c4c34c'
   #twitter
 end
 Devise.setup do |config|
-  config.omniauth :twitter, 'ENV["twitter_app_id"]', 'ENV["twitter_app_secret"]'
+  config.omniauth :twitter, 'O7KbmZiixCToiuAXSxYvPM33f', 'XhBjC08nzEwChFduOZeXV0KtlHVk81QLRBuoBQbShGJaTcwegM'
 end
