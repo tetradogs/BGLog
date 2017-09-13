@@ -1,0 +1,57 @@
+  <div class="container">
+    <div class="row">
+      <%=render "partial/carousel"%>
+    </div>
+  </div>
+  <!--こちらはログイン状況の確認です-->
+    <div class="container text-center pagetop">
+      <div class="row">
+        <h1>お知らせ</h1>
+        <p>ボドログはプレイしたボードゲームを記録したり感想を書くことで、ボードゲームの面白さを更に高めていくサービスです</p>
+        <% if user_signed_in? %>
+          <p>ログインしています</p>
+          <%= link_to "Log Out", destroy_user_session_path, method: :delete%>
+          <%= link_to "MyProfile", show_users_path(current_user)%>
+          <%= link_to "EditMyProfile", edit_user_registration_path%>
+          <%= link_to "AddListing", new_listing_path%>
+
+        <% else %>
+              <%= link_to user_facebook_omniauth_authorize_path do%><button class="btn btn-primary">Facebookで登録orログイン</button><% end %>
+              <%= link_to user_twitter_omniauth_authorize_path do %><button class="btn btn-primary">Twitterで登録orログイン</button><% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="container text-center pagetop">
+      <div class="row">
+        <h1>ボドログの使い方</h1>
+        <div class="col-md-12">
+          <div class="col-md-4">
+            <i class="glyphicon glyphicon-bullhorn"></i>
+            <h4>記録用に</h4>
+            <p>ボドログは今まで遊んだボードゲームをワンタップで登録ができます。「あのとき遊んだボードゲームはなんだったかな…？」を減らします。</p>
+          </div>
+          <div class="col-md-4">
+            <i class="glyphicon glyphicon-bullhorn"></i>
+            <h4>記録用に</h4>
+            <p>ボドログは今まで遊んだボードゲームをワンタップで登録ができます。「あのとき遊んだボードゲームはなんだったかな…？」を減らします。</p>
+          </div>
+          <div class="col-md-4">
+            <i class="glyphicon glyphicon-bullhorn"></i>
+            <h4>記録用に</h4>
+            <p>ボドログは今まで遊んだボードゲームをワンタップで登録ができます。「あのとき遊んだボードゲームはなんだったかな…？」を減らします。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+<style>
+.pagetop{
+  padding-top:30px;
+  padding-bottom:30px;
+}
+.pagetop h1{
+  padding-bottom:20px;
+
+  }
+}
+</style>

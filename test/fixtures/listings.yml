@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  game_title: MyString
+  valuation: MyString
+  status: MyString
+  classification: MyString
+  game_content: MyText
+  image: MyString
+  user: one
+
+two:
+  game_title: MyString
+  valuation: MyString
+  status: MyString
+  classification: MyString
+  game_content: MyText
+  image: MyString
+  user: two

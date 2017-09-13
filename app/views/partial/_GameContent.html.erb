@@ -1,0 +1,86 @@
+<div class="container">
+	<% @listings.each do |listing| %>
+    <div class="col-md-4 col-sm-4">
+			<div class="panel panel-default panel-normal">
+				<div class="panel-body">
+          <div class="panel-title">
+            <div class="row">
+              <div class="col-md-8 col-sm-8 col-xs-8">
+								<span class="boardgametitle"><%= link_to listing.game_title, listing_path(listing) %></span>
+							</div>
+							<div class="col-md-4 col-sm-4 col-xs-4 text-right time-design">
+								<span class="text-muted time-design"><%=listing.updated_at.strftime("%m月%d日")%></span>
+							</div>
+						</div>
+          </div><!--.strftime("%Y年%m月%d日 %H時%M分")-->
+					<div class="panel-infomation">
+						<span class="tableValuation"><%= listing.valuation %></span>
+					</div>
+          <div class="panel-button">
+            <div class="row">
+              <div class="col-md-4 col-sm-4 col-xs-4"><%= listing.classification%></div>
+              <div class="col-md-4 col-sm-4 col-xs-4"><%=link_to "http://www.amazon.co.jp/s/?field-keywords=#{listing.game_title}&tag=colmin-22" do %><i class="fa fa-amazon list-icon"></i><% end %></div>
+              <div class="col-md-4 col-sm-4 col-xs-4">詳細</div>
+            </div>
+          </div>
+				</div>
+			</div>
+      <% if listing.user_id == current_user.id%>
+        <div class="edit-design btn btn-default"><%=link_to "Edit", edit_listing_path(listing)%></div>
+      <% end %>
+		</div>
+    <% end %>
+
+
+</div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<style>
+
+.tableValuation{
+	font-size:16px;
+	color:#FFD464;
+}
+
+.boardgametitle{
+	font-weight:bold;
+
+}
+.boardgametitle a{
+		color:black;
+}
+
+.panel-normal { /* Only for this preview   margin-top-bottom-10px*/
+    margin-bottom:2px;
+    margin-top:2px;
+    position:relative;
+}
+.edit-design{
+  position:absolute;
+  top:-12px;
+  right:0;
+}
+
+.panel-button {
+
+		padding-top:4px;
+		font-size:10px;
+		border-top: 1px solid rgba(0, 0, 0, .2);
+		box-shadow:rgba(255, 255, 255, .3) 0 1px 0 inset;
+}
+
+.panel-body{
+	padding-bottom:4px;
+}
+
+.list-icon{
+  background-color:#ff9900;
+  color:white;
+  padding:5px;
+  border-radius:5px;
+}
+
+.time-design{
+	margin-top:4px;
+  font-size:10px;
+}
+</style>

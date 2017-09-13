@@ -1,0 +1,87 @@
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+<!--＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃ジャンルに関するCSS＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃-->
+<style>
+.classification{
+  color: gray;
+  cursor: pointer;
+  display: flex;
+}
+.classification input[type='radio']{
+	display: none;
+}
+.classification label{
+  position: relative;
+  padding: 20px 20px 0;
+  color: gray;
+  cursor: pointer;
+  font-size: 32px;
+}
+.classification label .text{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  color: gray;
+}
+
+
+.radio + span + i {opacity:0.3;}
+.radio + span{opacity:0.3;}
+.radio:checked + span + i{opacity:1;}
+.radio:checked + span{opacity:1;}
+
+</style>
+
+<!--
+
+<h3>要素の追加</h3>
+
+<%= form_for @listing do |f| %>
+<div class="addelement">
+  <label><%=f.check_box :valuation , checked_value: "1" ,class:"checkbox"%><span class="text">持っています！</span><i class="fa fa-users" aria-hidden="true"></i></label>
+  <label><%=f.check_box :valuation , checked_value: "1" ,class:"checkbox"%><span class="text">遊びたい！</span><i class="fa fa-users" aria-hidden="true"></i></label>
+  <label><%=f.check_box :valuation , checked_value: "1" ,class:"checkbox"%><span class="text">特におすすめ！</span><i class="fa fa-users" aria-hidden="true"></i></label>
+</div>
+  <p><%=f.submit%></p>
+<% end %>
+-->
+
+
+<!--＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃要素の追加に関するCSS＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃-->
+
+<style>
+.addelement{
+  color: gray;
+  cursor: pointer;
+  display: flex;
+}
+.addelement input[type='checkbox']{
+	display: none;
+}
+.addelement label{
+  position: relative;
+  padding: 30px 30px 0;
+  color: gray;
+  cursor: pointer;
+  font-size: 32px;
+}
+.addelement label .text{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  color: gray;
+}
+
+.checkbox + span + i {opacity:0.3;}
+.checkbox + span{opacity:0.3;}
+.checkbox:checked + span + i{opacity:1;}
+.checkbox:checked + span{opacity:1;}
+</style>

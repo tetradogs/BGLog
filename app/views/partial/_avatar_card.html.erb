@@ -1,0 +1,32 @@
+<!--ここからアカウント背景+アカウント画像+コメントのBootstrap-->
+<div class="container">
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-6">
+
+          <div class="card hovercard">
+              <div class="cardheader">
+<!--ここにbackgroundを設定したDivが入る-->
+              </div>
+              <div class="avatar">
+                  <%= image_tag("#{@user.image}")%>
+              </div>
+              <div class="info">
+                  <div class="title">
+                      <a target="_blank" href="http://scripteden.com/"><%= @user.name%></a>
+                  </div>
+                  <div class="desc"><%= @user.description%></div>
+              </div>
+              <div class="bottom">
+                  <div class="col-md-6 col-xs-6 follow line" align="center">
+                   <%= @listings.count%> <br/> <span>Playing</span>
+                  </div>
+                  <div class="col-md-6 col-xs-6 follow line" align="center">
+                   <%= @listings_have.count%><br/> <span>Having</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+</div>
+</div>
+
+<!--ここまでアカウント背景+アカウント画像+コメントのBootstrap-->

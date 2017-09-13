@@ -1,0 +1,576 @@
+<div class="container">
+<div class="row">
+<div class="content_heading">ゲームの追加</div>
+<div class="game-detail col-xs-12">
+  <div class="game-content-detail col-xs-12">
+
+  <div class="col-md-10 col-md-offset-1">
+     <div class="form-horizontal" role="form">
+        <%= form_for @listing do |f| %>
+              <% if @listing.image.nil?%>
+                <div class="form-group">
+                  <label class="content-detail_heading"><i class='glyphicon glyphicon-pencil'></i>ゲーム名<span class="presence_true">必須</span><i class='glyphicon glyphicon-search icon-right'></i></label>
+                  <%= f.text_field :game_title , id: "keyword", placeholder: "名前", class:"form-control", style:"height:60px;margin-left:10px!important;"%>
+                </div>
+              <%else%>
+                <div class="form-group">
+                  <div class="col-xs-4 col-xs-adjust">
+                  <label class="content-detail_heading"><i class='glyphicon glyphicon-search'></i>ゲーム画像</label>
+                  <%=image_tag("#{@listing.image}", style: "height: 100px;display: inline-block;padding-left:10px!important;")%>
+                </div>
+                <div class="col-xs-8">
+                  <div class="form-group">
+                    <label class="content-detail_heading"><i class='glyphicon glyphicon-edit'></i>ゲーム名<span class="presence_true">必須</span><i class='glyphicon glyphicon-search icon-right'></i></label>
+                    <%= f.text_field :game_title , id: "keyword", placeholder: "名前", class:"form-control", style:"height:80px;margin-left:10px!important;"%>
+                  </div>
+                </div>
+                </div>
+                <% end %>
+            <div class="form-group">
+              <label class="content-detail_heading"><i class='glyphicon glyphicon-thumbs-up'></i>評価<i class='glyphicon glyphicon-search icon-right'></i></label>
+                <div class="evaluation">
+                  <%= f.radio_button :valuation, "★★★★★", id:"star1"%><label for="star1"><span class="text">最高</span>★</label>
+                  <%= f.radio_button :valuation, "★★★★☆", id:"star2"%><label for="star2"><span class="text">良い</span>★</label>
+                  <%= f.radio_button :valuation, "★★★☆☆", id:"star3"%><label for="star3"><span class="text">普通</span>★</label>
+                  <%= f.radio_button :valuation, "★★☆☆☆", id:"star4"%><label for="star4"><span class="text">悪い</span>★</label>
+                  <%= f.radio_button :valuation, "★☆☆☆☆", id:"star5"%><label for="star5"><span class="text">最悪</span>★</label>
+                </div>
+            </div>
+            <div class="form-group">
+              <label class="content-detail_heading"><i class='glyphicon glyphicon-check'></i>プレイ数</label>
+                  <div class="quantity figure">
+                    <% if @listing.game_counting.present?%>
+                    <%=f.number_field :game_counting ,in: 1...1000%>
+                    <%else%>
+                    <%=f.number_field :game_counting ,value:"1",in: 1...1000%>
+                    <%end%>
+                  </div>
+            </div>
+            <div class="form-group">
+              <label class="content-detail_heading"><i class="fa fa-comment-o" aria-hidden="true"></i>感想を友達に共有する</label>
+              <%= f.text_area :game_content, placeholder: "コメントを入力してね",  class:"form-control", style:"height:150px;"%>
+            </div>
+            <div class="form-group">
+              <label class="content-detail_heading"><i class='glyphicon glyphicon-collapse-down'></i>詳細を入力する<i class='glyphicon glyphicon-search icon-right'></i></label>
+                <div class="according_content" id="accordion">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                              +
+                            </a>
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                            <div class="col-xs-12">
+
+                              <div class="form-group">
+                                <label class="content-detail_heading"><i class='glyphicon glyphicon-user'></i>プレイ人数</label>
+                                <div class="figure">
+                                  <label class="classification-icon"><%= f.radio_button :game_player, "2", class:"radio"%><span class="text" style="font-size:28px;">2</span></label>
+                                  <label class="classification-icon"><%= f.radio_button :game_player, "3", class:"radio"%><span class="text" style="font-size:28px;">3</span></label>
+                                  <label class="classification-icon"><%= f.radio_button :game_player, "4", class:"radio"%><span class="text" style="font-size:28px;">4</span></label>
+                                  <label class="classification-icon"><%= f.radio_button :game_player, "5", class:"radio"%><span class="text" style="font-size:28px;">5</span></label>
+                                  <label class="classification-icon"><%= f.radio_button :game_player, "6",class:"radio"%><span class="text" style="font-size:28px;">6+</span></label>
+                                </div>
+                              </div>
+                              <!--
+                              <div class="form-group">
+                                <label class="content-detail_heading">お店<i class='glyphicon glyphicon-search icon-right'></i></label>
+                                <div class="addelement">
+                                <%= f.text_field :game_title , id: "shop", placeholder: "名前", class:"form-control", style:"height:60px;"%>
+                                  <label class="classification-icon"><%= f.check_box :status_want, value:"#{params[:shop]}",class:"radio"%><span class="text">良く行くお店に設定する</span><i class="fa fa-commenting-o" aria-hidden="true"></i></label>
+                               </div>
+                              </div>-->
+                              <div class="form-group">
+                                <label class="content-detail_heading"><i class='glyphicon glyphicon-count'></i>プレイ時間</label>
+                                <div class="figure">
+                                  <label class="classification-icon"><%= f.radio_button :game_time, "10", class:"radio"%><span class="text" style="font-size:28px;">10</span></label>
+                                  <label class="classification-icon"><%= f.radio_button :game_time, "30", class:"radio"%><span class="text" style="font-size:28px;">30</span></label>
+                                  <label class="classification-icon"><%= f.radio_button :game_time, "60", class:"radio"%><span class="text" style="font-size:28px;">60</span></label>
+                                  <label class="classification-icon"><%= f.radio_button :game_time, "90", class:"radio"%><span class="text" style="font-size:28px;">90</span></label>
+                                  <label class="classification-icon"><%= f.radio_button :game_time, "120",class:"radio"%><span class="text" style="font-size:28px;">120+</span></label>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="content-detail_heading">勝敗<i class='glyphicon glyphicon-search icon-right'></i></label>
+                                <div class="figure">
+                                  <label class="classification-icon"><%= f.radio_button :classification, "パーティー系", class:"radio"%><span class="text" style="font-size:28px;">勝</span></label>
+                                  <label class="classification-icon"><%= f.radio_button :classification, "戦略系", class:"radio"%><span class="text" style="font-size:28px;">負</span></label>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="content-detail_heading">ジャンル<i class='glyphicon glyphicon-search icon-right'></i></label>
+                                <div class="classification">
+                                  <label class="classification-icon"><%= f.radio_button :classification, "パーティー系", class:"radio"%><span class="text">パーティー系</span><i class="fa fa-users" aria-hidden="true"></i></label>
+                                  <label class="classification-icon"><%= f.radio_button :classification, "戦略系", class:"radio"%><span class="text">戦略系</span><i class="glyphicon glyphicon-eye-close"></i></label>
+                                  <label class="classification-icon"><%= f.radio_button :classification, "ブラフ系", class:"radio"%><span class="text">ブラフ系</span><i class="fa fa-commenting-o" aria-hidden="true"></i></label>
+                                  <label class="classification-icon"><%= f.radio_button :classification, "隠匿系", class:"radio"%><span class="text">隠匿系</span><i class="glyphicon glyphicon-eye-close"></i></label>
+                                  <label class="classification-icon"><%= f.radio_button :classification, "ガッツリ系",class:"radio"%><span class="text">がっつり系</span><i class="fa fa-cube" aria-hidden="true"></i></label>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="content-detail_heading">メモ<i class='glyphicon glyphicon-search icon-right'></i></label>
+                                <div class="addelement">
+                                  <label class="classification-icon"><%= f.check_box :status_have, class:"radio"%><span class="text">持っています！</span><i class="fa fa-users" aria-hidden="true"></i></label>
+                                  <label class="classification-icon"><%= f.check_box :status_can_instruction,  class:"radio"%><span class="text">インスト可</span><i class="fa fa-users" aria-hidden="true"></i></label>
+                                  <label class="classification-icon"><%= f.check_box :status_verygood, class:"radio"%><span class="text">特に好き</span><i class="fa fa-commenting-o" aria-hidden="true"></i></label>
+                                  <label class="classification-icon"><%= f.check_box :status_want, class:"radio"%><span class="text">遊びたい！</span><i class="fa fa-commenting-o" aria-hidden="true"></i></label>
+                               </div>
+                              </div>
+
+                            </div>
+                        </div>
+                </div>
+            </div>
+          <div class="submit-fixed content-fixed"><%=f.submit "投稿する"%></div>
+        <% end %>
+        <%= link_to "削除", listing_path(@listing), :method => :delete ,class:"btn btn-danger",data: { confirm: '削除しますか？' }%>
+        <%= render "partial/newCheckbutton"%>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+<style>
+/*common*/
+.icon-right{
+  float:right;
+}
+.presence_true{
+  display:inline-block;
+  background-color:#DA5B57;
+  color:white;
+  padding:3px 6px;
+  border-radius:5px;
+  margin-left:5px;
+}
+
+
+
+.content_heading{
+  width:100%;
+  background-color:green;
+  color:white;
+  padding:4px 12px;
+  font-size:20px;
+  display:inline-block;
+  font-weight: bold;
+  letter-spacing: 4px;
+}
+
+.content-fixed{
+  position: fixed;
+  z-index:100;
+  width:100%;
+}
+
+.submit-fixed{
+  left:0;
+  bottom:0;
+  background-color:rgba(255,255,255,1);
+  padding:12px;
+  text-align:center;
+}
+.submit-fixed input{
+  width:50%;
+  padding:16px;
+  background-color: green;
+  color:white;
+  font-weight:bold;
+  font-size:16px;
+}
+
+/*game-detail*/
+.game-detail{
+    padding:10px 16px;
+    background-color: white;
+}
+.game-title-detail{
+}
+.game-title-detail .game-title{
+  font-size:24px;
+  font-weight: bold;
+  color:green;
+}
+.game-title-detail .game-valuation{
+  font-size:20px;
+  font-weight: bold;
+  color:#FFD464;
+}
+.game-title-detail .game-updated{
+  font-size:12px;
+  color:gray;
+}
+.game-content-detail{
+  margin-top:12px;
+}
+.game-content-detail .content-detail_heading{
+  width:100%;
+  font-size:14px;
+  color:green;
+
+}
+.game-content-detail .game-description{
+  font-size:16px;
+  margin:16px;
+}
+.game-content-detail .game-description img{
+  margin:12px 0;
+}
+
+/*content-table*/
+.content-table{
+  border:2px solid green;
+  margin:16px 0;
+}
+.content-table .content-detail_heading{
+  border-bottom:2px solid green;
+  background-color: white!important;
+  color:green;
+  padding:12px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+.col-xs-adjust{
+  padding-right:0!important;
+  padding-left:0!important;
+}
+</style>
+
+<!--Bootstrap読み込み-->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+<!--jQuery UIを読み込む　↓-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.19/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.19/themes/redmond/jquery-ui.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.19/i18n/jquery-ui-i18n.min.js"></script>
+<!--jQuery UIを読み込む　↑-->
+
+<!--jQueryUIの機能であるAutocompleteメソッドを使う-->
+<script type="text/javascript">
+$(document).ready(function(){
+
+    $('#keyword').autocomplete({
+        source: function(request, response){
+            $.ajax({
+                url: "http://completion.amazon.co.jp/search/complete",
+                data: {mkt:'6', method:'completion', 'search-alias':'aps', q: request.term},
+                dataType: "jsonp",
+                type: "GET",
+                success :function(data) {
+                    response(data[1]);
+                }
+            });
+        },
+        delay: 100,
+        minLength: 3, // 三文字以上入力すると候補が出てくる
+        autoFocus: true,
+    });
+});
+
+</script>
+
+
+
+
+<!--#################アコーディオン関連#################-->
+<style>
+.according_content a{
+  font-size:24px;
+  color:gray;
+  border:1px solid gray;
+  border-radius:5px;
+  display:inline-block;
+  text-align:center;
+  padding:10px auto;
+  width:40px;
+  height:40px;
+  cursor:pointer;
+  /*margin-left:10px;*/
+}
+.according_content a:hover{
+  text-decoration:none!important;
+}
+
+</style>
+
+<!--＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃評価値に関するCSS＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃-->
+<style>
+.evaluation{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.evaluation input[type='radio']{
+  display: none;
+}
+.evaluation label{
+  position: relative;
+  padding: 10px 10px 0;
+  color: 	rgba(128, 128, 128, 0.4);
+  cursor: pointer;
+  font-size: 50px;
+}
+
+
+.evaluation label .text{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  color: gray;
+}
+.evaluation label:hover,
+.evaluation label:hover ~ label,
+.evaluation input[type='radio']:checked ~ label{
+  color: #ffcc00;
+}
+
+
+</style>
+
+<!--＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃ジャンルに関するCSS＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃-->
+<style>
+.classification{
+  color: gray;
+  cursor: pointer;
+  display: flex;
+}
+.classification input[type='radio']{
+	display: none;
+}
+.classification label{
+  position: relative;
+  padding: 20px 20px 0;
+  color: gray;
+  cursor: pointer;
+  font-size: 32px;
+}
+.classification label .text{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  color: gray;
+}
+
+
+.radio + span + i {opacity:0.3;}
+.radio + span{opacity:0.3;}
+.radio:checked + span + i{opacity:1;}
+.radio:checked + span{opacity:1;}
+
+</style>
+
+<!--＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃要素の追加に関するCSS＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃-->
+
+<style>
+.addelement{
+  color: gray;
+  cursor: pointer;
+  display: flex;
+}
+.addelement input[type='checkbox']{
+	display: none;
+}
+.addelement label{
+  position: relative;
+  padding: 30px 30px 0;
+  color: gray;
+  cursor: pointer;
+  font-size: 32px;
+}
+.addelement label .text{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  color: gray;
+}
+
+.checkbox + span + i {opacity:0.3;}
+.checkbox + span{opacity:0.3;}
+.checkbox:checked + span + i{opacity:1;}
+.checkbox:checked + span{opacity:1;}
+</style>
+<!--＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃数字に関するCSS＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃-->
+
+<style>
+.figure{
+  color: gray;
+  cursor: pointer;
+  display: flex;
+}
+.figure input[type='radio']{
+	display: none;
+}
+.figure label{
+  position: relative;
+  padding: 30px 30px 0;
+  color: gray;
+  cursor: pointer;
+  font-size: 32px;
+}
+.figure label .text{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  color: gray;
+}
+
+
+.radio + span + i {opacity:0.3;}
+.radio + span{opacity:0.3;}
+.radio:checked + span + i{opacity:1;}
+.radio:checked + span{opacity:1;}
+</style>
+
+
+
+
+
+<style>
+
+.spin_button{
+  background-color: :none!important;
+}
+</style>
+
+
+
+
+
+
+<style>
+/*カウンターのcss*/
+.quantity {
+  position: relative;
+
+}
+
+.quantity input[type=number]::-webkit-inner-spin-button,
+.quantity input[type=number]::-webkit-outer-spin-button
+{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.quantity input[type=number]
+{
+  -moz-appearance: textfield;
+}
+
+.quantity input {
+  width: 200px;
+  height: 42px;
+  line-height: 1.65;
+  float: left;
+  display: block;
+  padding: 0;
+  margin: 0;
+  padding-left: 135px;
+  font-size:24px;
+  /*border: 1px solid #eee;*/
+  border:none!important;
+}
+
+.quantity input:focus {
+  outline: 0;
+}
+
+.quantity-nav {
+  float: left;
+  position: relative;
+  height: 42px;
+}
+
+.quantity-button {
+  position: relative;
+  cursor: pointer;
+  display:inline-block;
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+  line-height: 1.7;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+
+  width:40px;
+  height:40px;
+  border:1px solid gray;
+  border-radius: 5px;
+}
+
+.quantity-button.quantity-up {
+  position: absolute;
+  top: 0;
+  left:50px;
+
+}
+
+.quantity-button.quantity-down {
+  position: absolute;
+  top:0;
+  left:-120px;
+  font-size:26px;
+
+}
+
+
+
+</style>
+
+<script>
+//カウンターのjs
+
+jQuery('<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>').insertAfter('.quantity input');
+jQuery('.quantity').each(function() {
+  var spinner = jQuery(this),
+    input = spinner.find('input[type="number"]'),
+    btnUp = spinner.find('.quantity-up'),
+    btnDown = spinner.find('.quantity-down'),
+    min = input.attr('min'),
+    max = input.attr('max');
+
+  btnUp.click(function() {
+    var oldValue = parseFloat(input.val());
+    if (oldValue >= max) {
+      var newVal = oldValue;
+    } else {
+      var newVal = oldValue + 1;
+    }
+    spinner.find("input").val(newVal);
+    spinner.find("input").trigger("change");
+  });
+
+  btnDown.click(function() {
+    var oldValue = parseFloat(input.val());
+    if (oldValue <= min) {
+      var newVal = oldValue;
+    } else {
+      var newVal = oldValue - 1;
+    }
+    spinner.find("input").val(newVal);
+    spinner.find("input").trigger("change");
+  });
+
+});
+
+</script>

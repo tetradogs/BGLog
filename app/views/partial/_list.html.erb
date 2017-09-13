@@ -1,0 +1,116 @@
+
+
+<style>
+.listeet{
+	border:none!important;
+	background-color: white;
+	padding:9px 12px;
+	margin-bottom:8px;
+	color:rgb(20, 23, 26);
+	font-size:14px;
+	border:1px solid #eee;
+}
+.listeet span{
+	display:inline-block;
+	padding-right:4px;
+}
+.listeet-border{
+	border-left:4px solid black!important;
+}
+.listeet-heading .listeet-title{
+	font-weight:bold;
+	color:black;
+}
+.time-design{
+	color:rgb(101, 119, 134);
+}
+.icon{
+	display:block!important;
+	text-align:left;
+	color:gray;
+	font-size:20px;
+	padding:10px 20px;
+	border-radius:5px;
+	text-align:center;
+}
+.listeet-body{
+	min-height:20px;
+}
+.listeet-footer span{
+	padding-right:15px;
+}
+.listeet-footer .valuation{
+	  color: #ffcc00;
+}
+</style>
+
+	<% @listings.each do |listing| %>
+
+
+    <div class="col-md-4 col-sm-4">
+
+			<div class="panel panel-default panel-front">
+
+				<div class="panel-heading">
+
+					<h4 class="panel-title"><img src="http://lorempixel.com/50/50?rand=1"></h4>
+
+				</div>
+
+				<div class="panel-body">
+
+					<div class="game-title"><%= link_to listing.game_title, listing_path(listing) %></div>
+<%= listing.valuation %>
+				<div class="text-right">
+					<%= link_to "詳細ページへ", listing_path(listing), class:"btn btn-info btn-sm",role:"button" %>
+				</div>
+
+				</div>
+			</div>
+
+		</div>
+
+    <% end %>
+
+
+<style>
+.panel-front { /* Only for this preview */
+    margin-bottom:20px;
+    margin-top:20px;
+}
+
+.panel-front .panel-heading .panel-title img {
+	border-radius:3px 3px 0px 0px;
+	width:100%;
+  text-align:center;
+}
+
+.panel-front .panel-heading {
+	padding: 0px;
+}
+
+.panel-front .panel-heading h4 {
+	line-height: 0;
+}
+
+.panel-front .panel-body h4 {
+	font-weight: bold;
+	margin-top: 5px;
+	margin-bottom: 15px;
+}
+
+.text-right {
+    margin-top: 10px;
+}
+
+.game-title{
+	background-color:#F89174;
+	padding:5px;
+}
+.game-title a{
+		color:white;
+}
+.panel-body{
+	padding:0!important;
+}
+</style>

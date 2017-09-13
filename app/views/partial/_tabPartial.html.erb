@@ -1,0 +1,496 @@
+<div id="game_time_counting_10" class="tab-pane">
+  <div class="content_heading">10分ゲーム<%=link_to "戻る", show_users_path(params[:id]),class:"btn btn-danger icon-right"%></div>
+  <div class="col-xs-12">
+    <% @listings_game_time_10.reverse_each do |listing|%>
+    <div class="col-xs-12 game-content">
+      <div class="col-xs-12">
+        <div class="col-xs-4 col-xs-adjust">
+          <%if listing.image.nil?%>
+          <img src="https://placehold.jp/100x100.png" alt="" class="img-fluid">
+          <%else%>
+              <%=image_tag("#{listing.image}", style: "height: 100px;display: inline-block;")%>
+          <%end%>
+        </div>
+          <div class="col-xs-8 col-xs-adjust">
+            <div class="game-title"><%=link_to listing_path(listing) do%><%= listing.game_title%><% end %></div>
+
+            <div class="game-valuation"><%= listing.valuation %><span class="game-updated">　(<%= listing.updated_at.strftime('%Y/%m/%d') %>更新)</span></div>
+
+            <div class="game-description"><%= listing.game_content%></div>
+          </div>
+      </div>
+      <div class="col-xs-12 game-footer">
+        <div class="col-xs-4 col-xs-adjust">
+          <div class="game-status">
+            <% if listing.status_have == "1" %><span class="btn btn-primary"><i class="glyphicon glyphicon-briefcase"></i></span><% end %>
+            <% if listing.status_verygood == "1" %><span class="btn btn-danger"><i class="glyphicon glyphicon-thumbs-up"></i></span><% end %>
+            <% if listing.status_can_instruction == "1" %><span class="btn btn-warning"><i class="glyphicon glyphicon-volume-up"></i></span><% end %>
+            <% if listing.status_want == "1" %><span class="btn btn-success"><i class="glyphicon glyphicon-fire"></i></span><% end %>
+          </div>
+        </div>
+        <div class="col-xs-8 col-xs-adjust">
+          <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default"%><% end %>
+          <%=link_to "詳細", listing_path(listing), class:"btn btn-success"%>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<div id="game_time_counting_30" class="tab-pane">
+  <div class="content_heading">30分ゲーム</div>
+  <div class="col-xs-12">
+    <% @listings_game_time_30.reverse_each do |listing|%>
+    <div class="col-xs-12 game-content">
+      <div class="col-xs-12">
+        <div class="col-xs-4 col-xs-adjust">
+          <%if listing.image.nil?%>
+          <img src="https://placehold.jp/100x100.png" alt="" class="img-fluid">
+          <%else%>
+              <%=image_tag("#{listing.image}", style: "height: 100px;display: inline-block;")%>
+          <%end%>
+        </div>
+          <div class="col-xs-8 col-xs-adjust">
+            <div class="game-title"><%=link_to listing_path(listing) do%><%= listing.game_title%><% end %></div>
+
+            <div class="game-valuation"><%= listing.valuation %><span class="game-updated">　(<%= listing.updated_at.strftime('%Y/%m/%d') %>更新)</span></div>
+
+            <div class="game-description"><%= listing.game_content%></div>
+          </div>
+      </div>
+      <div class="col-xs-12 game-footer">
+        <div class="col-xs-4 col-xs-adjust">
+          <div class="game-status">
+            <% if listing.status_have == "1" %><span class="btn btn-primary"><i class="glyphicon glyphicon-briefcase"></i></span><% end %>
+            <% if listing.status_verygood == "1" %><span class="btn btn-danger"><i class="glyphicon glyphicon-thumbs-up"></i></span><% end %>
+            <% if listing.status_can_instruction == "1" %><span class="btn btn-warning"><i class="glyphicon glyphicon-volume-up"></i></span><% end %>
+            <% if listing.status_want == "1" %><span class="btn btn-success"><i class="glyphicon glyphicon-fire"></i></span><% end %>
+          </div>
+        </div>
+        <div class="col-xs-8 col-xs-adjust">
+          <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default"%><% end %>
+          <%=link_to "詳細", listing_path(listing), class:"btn btn-success"%>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<div id="game_time_counting_60" class="tab-pane">
+  <div class="content_heading">60分ゲーム</div>
+  <div class="col-xs-12">
+    <% @listings_game_time_60.reverse_each do |listing|%>
+    <div class="col-xs-12 game-content">
+      <div class="col-xs-12">
+        <div class="col-xs-4 col-xs-adjust">
+          <%if listing.image.nil?%>
+          <img src="https://placehold.jp/100x100.png" alt="" class="img-fluid">
+          <%else%>
+              <%=image_tag("#{listing.image}", style: "height: 100px;display: inline-block;")%>
+          <%end%>
+        </div>
+          <div class="col-xs-8 col-xs-adjust">
+            <div class="game-title"><%=link_to listing_path(listing) do%><%= listing.game_title%><% end %></div>
+
+            <div class="game-valuation"><%= listing.valuation %><span class="game-updated">　(<%= listing.updated_at.strftime('%Y/%m/%d') %>更新)</span></div>
+
+            <div class="game-description"><%= listing.game_content%></div>
+          </div>
+      </div>
+      <div class="col-xs-12 game-footer">
+        <div class="col-xs-4 col-xs-adjust">
+          <div class="game-status">
+            <% if listing.status_have == "1" %><span class="btn btn-primary"><i class="glyphicon glyphicon-briefcase"></i></span><% end %>
+            <% if listing.status_verygood == "1" %><span class="btn btn-danger"><i class="glyphicon glyphicon-thumbs-up"></i></span><% end %>
+            <% if listing.status_can_instruction == "1" %><span class="btn btn-warning"><i class="glyphicon glyphicon-volume-up"></i></span><% end %>
+            <% if listing.status_want == "1" %><span class="btn btn-success"><i class="glyphicon glyphicon-fire"></i></span><% end %>
+          </div>
+        </div>
+        <div class="col-xs-8 col-xs-adjust">
+          <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default"%><% end %>
+          <%=link_to "詳細", listing_path(listing), class:"btn btn-success"%>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<div id="game_time_counting_90" class="tab-pane">
+  <div class="content_heading">90分ゲーム</div>
+  <div class="col-xs-12">
+    <% @listings_game_time_90.reverse_each do |listing|%>
+    <div class="col-xs-12 game-content">
+      <div class="col-xs-12">
+        <div class="col-xs-4 col-xs-adjust">
+          <%if listing.image.nil?%>
+          <img src="https://placehold.jp/100x100.png" alt="" class="img-fluid">
+          <%else%>
+              <%=image_tag("#{listing.image}", style: "height: 100px;display: inline-block;")%>
+          <%end%>
+        </div>
+          <div class="col-xs-8 col-xs-adjust">
+            <div class="game-title"><%=link_to listing_path(listing) do%><%= listing.game_title%><% end %></div>
+
+            <div class="game-valuation"><%= listing.valuation %><span class="game-updated">　(<%= listing.updated_at.strftime('%Y/%m/%d') %>更新)</span></div>
+
+            <div class="game-description"><%= listing.game_content%></div>
+          </div>
+      </div>
+      <div class="col-xs-12 game-footer">
+        <div class="col-xs-4 col-xs-adjust">
+          <div class="game-status">
+            <% if listing.status_have == "1" %><span class="btn btn-primary"><i class="glyphicon glyphicon-briefcase"></i></span><% end %>
+            <% if listing.status_verygood == "1" %><span class="btn btn-danger"><i class="glyphicon glyphicon-thumbs-up"></i></span><% end %>
+            <% if listing.status_can_instruction == "1" %><span class="btn btn-warning"><i class="glyphicon glyphicon-volume-up"></i></span><% end %>
+            <% if listing.status_want == "1" %><span class="btn btn-success"><i class="glyphicon glyphicon-fire"></i></span><% end %>
+          </div>
+        </div>
+        <div class="col-xs-8 col-xs-adjust">
+          <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default"%><% end %>
+          <%=link_to "詳細", listing_path(listing), class:"btn btn-success"%>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<div id="game_time_counting_120" class="tab-pane">
+  <div class="content_heading">120分ゲーム</div>
+  <div class="col-xs-12">
+    <% @listings_game_time_120.reverse_each do |listing|%>
+    <div class="col-xs-12 game-content">
+      <div class="col-xs-12">
+        <div class="col-xs-4 col-xs-adjust">
+          <%if listing.image.nil?%>
+          <img src="https://placehold.jp/100x100.png" alt="" class="img-fluid">
+          <%else%>
+              <%=image_tag("#{listing.image}", style: "height: 100px;display: inline-block;")%>
+          <%end%>
+        </div>
+          <div class="col-xs-8 col-xs-adjust">
+            <div class="game-title"><%=link_to listing_path(listing) do%><%= listing.game_title%><% end %></div>
+
+            <div class="game-valuation"><%= listing.valuation %><span class="game-updated">　(<%= listing.updated_at.strftime('%Y/%m/%d') %>更新)</span></div>
+
+            <div class="game-description"><%= listing.game_content%></div>
+          </div>
+      </div>
+      <div class="col-xs-12 game-footer">
+        <div class="col-xs-4 col-xs-adjust">
+          <div class="game-status">
+            <% if listing.status_have == "1" %><span class="btn btn-primary"><i class="glyphicon glyphicon-briefcase"></i></span><% end %>
+            <% if listing.status_verygood == "1" %><span class="btn btn-danger"><i class="glyphicon glyphicon-thumbs-up"></i></span><% end %>
+            <% if listing.status_can_instruction == "1" %><span class="btn btn-warning"><i class="glyphicon glyphicon-volume-up"></i></span><% end %>
+            <% if listing.status_want == "1" %><span class="btn btn-success"><i class="glyphicon glyphicon-fire"></i></span><% end %>
+          </div>
+        </div>
+        <div class="col-xs-8 col-xs-adjust">
+          <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default"%><% end %>
+          <%=link_to "詳細", listing_path(listing), class:"btn btn-success"%>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="game_player_counting_2" class="tab-pane">
+  <div class="content_heading">10分ゲーム<%=link_to "戻る", show_users_path(params[:id]),class:"btn btn-danger icon-right"%></div>
+  <div class="col-xs-12">
+    <% @listings_game_player_2.reverse_each do |listing|%>
+    <div class="col-xs-12 game-content">
+      <div class="col-xs-12">
+        <div class="col-xs-4 col-xs-adjust">
+          <%if listing.image.nil?%>
+          <img src="https://placehold.jp/100x100.png" alt="" class="img-fluid">
+          <%else%>
+              <%=image_tag("#{listing.image}", style: "height: 100px;display: inline-block;")%>
+          <%end%>
+        </div>
+          <div class="col-xs-8 col-xs-adjust">
+            <div class="game-title"><%=link_to listing_path(listing) do%><%= listing.game_title%><% end %></div>
+
+            <div class="game-valuation"><%= listing.valuation %><span class="game-updated">　(<%= listing.updated_at.strftime('%Y/%m/%d') %>更新)</span></div>
+
+            <div class="game-description"><%= listing.game_content%></div>
+          </div>
+      </div>
+      <div class="col-xs-12 game-footer">
+        <div class="col-xs-4 col-xs-adjust">
+          <div class="game-status">
+            <% if listing.status_have == "1" %><span class="btn btn-primary"><i class="glyphicon glyphicon-briefcase"></i></span><% end %>
+            <% if listing.status_verygood == "1" %><span class="btn btn-danger"><i class="glyphicon glyphicon-thumbs-up"></i></span><% end %>
+            <% if listing.status_can_instruction == "1" %><span class="btn btn-warning"><i class="glyphicon glyphicon-volume-up"></i></span><% end %>
+            <% if listing.status_want == "1" %><span class="btn btn-success"><i class="glyphicon glyphicon-fire"></i></span><% end %>
+          </div>
+        </div>
+        <div class="col-xs-8 col-xs-adjust">
+          <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default"%><% end %>
+          <%=link_to "詳細", listing_path(listing), class:"btn btn-success"%>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<div id="game_player_counting_3" class="tab-pane">
+  <div class="content_heading">30分ゲーム</div>
+  <div class="col-xs-12">
+    <% @listings_game_player_3.reverse_each do |listing|%>
+    <div class="col-xs-12 game-content">
+      <div class="col-xs-12">
+        <div class="col-xs-4 col-xs-adjust">
+          <%if listing.image.nil?%>
+          <img src="https://placehold.jp/100x100.png" alt="" class="img-fluid">
+          <%else%>
+              <%=image_tag("#{listing.image}", style: "height: 100px;display: inline-block;")%>
+          <%end%>
+        </div>
+          <div class="col-xs-8 col-xs-adjust">
+            <div class="game-title"><%=link_to listing_path(listing) do%><%= listing.game_title%><% end %></div>
+
+            <div class="game-valuation"><%= listing.valuation %><span class="game-updated">　(<%= listing.updated_at.strftime('%Y/%m/%d') %>更新)</span></div>
+
+            <div class="game-description"><%= listing.game_content%></div>
+          </div>
+      </div>
+      <div class="col-xs-12 game-footer">
+        <div class="col-xs-4 col-xs-adjust">
+          <div class="game-status">
+            <% if listing.status_have == "1" %><span class="btn btn-primary"><i class="glyphicon glyphicon-briefcase"></i></span><% end %>
+            <% if listing.status_verygood == "1" %><span class="btn btn-danger"><i class="glyphicon glyphicon-thumbs-up"></i></span><% end %>
+            <% if listing.status_can_instruction == "1" %><span class="btn btn-warning"><i class="glyphicon glyphicon-volume-up"></i></span><% end %>
+            <% if listing.status_want == "1" %><span class="btn btn-success"><i class="glyphicon glyphicon-fire"></i></span><% end %>
+          </div>
+        </div>
+        <div class="col-xs-8 col-xs-adjust">
+          <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default"%><% end %>
+          <%=link_to "詳細", listing_path(listing), class:"btn btn-success"%>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<div id="game_player_counting_4" class="tab-pane">
+  <div class="content_heading">60分ゲーム</div>
+  <div class="col-xs-12">
+    <!--gamecontent-->
+    <% @listings_game_player_4.reverse_each do |listing|%>
+    <div class="col-xs-12 game-content">
+      <div class="col-xs-12">
+          <%if listing.image.nil?%>
+          <div class="col-xs-2 col-xs-adjust img_border" style="background-image: url('https://placehold.jp/85x85.png');">
+          <%else%>
+          <div class="col-xs-2 col-xs-adjust img_border" style="background-image: url(<%=listing.image%>);">
+          <%end%>
+        </div>
+        <div class="col-xs-9 col-xs-adjust col-xs-offset-1">
+          <div class="col-xs-12 col-xs-adjust">
+            <div class="game-title col-xs-10 col-xs-adjust">
+              <%=link_to listing_path(listing) do%>
+              <%= listing.game_title%>
+              <% end %>
+            </div>
+            <div class=" col-xs-2 col-xs-adjust" style="text-align:right!important;">
+              <span class="game-updated"><%= listing.updated_at.strftime('%m/%d') %>更新</span>
+            </div>
+          </div>
+          <div class="col-xs-12 col-xs-adjust"style="margin-top:8px;">
+            <div class="game-valuation col-xs-3 col-xs-adjust"><%= listing.valuation %></div>
+            <div class="game-status col-xs-9 col-xs-adjust">
+              <% if listing.status_have == "1" %><span class="game_badges btn-primary"><i class="glyphicon glyphicon-briefcase"></i>持ってる</span><% end %>
+              <% if listing.status_verygood == "1" %><span class="game_badges btn-danger"><i class="glyphicon glyphicon-thumbs-up"></i>おススメ</span><% end %>
+              <% if listing.status_can_instruction == "1" %><span class="game_badges btn-warning"><i class="glyphicon glyphicon-volume-up"></i>インスト可</span><% end %>
+              <% if listing.status_want == "1" %><span class="game_badges btn-success"><i class="glyphicon glyphicon-fire"></i>遊びたい</span><% end %>
+            </div>
+            <div class="col-xs-12 col-xs-adjust" style="margin-top:5.4px;">
+              <div class="col-xs-10 col-xs-adjust game-description">
+                <%if listing.game_content.present?%>感想：<%= listing.game_content%><%else%>
+                <span style="color:white!important;">感想は未登録です</span><%end%>
+              </div>
+              <div class="col-xs-2 col-xs-adjust text_right">
+                <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default game_btn"%><% end %>
+                <%=link_to "詳細", listing_path(listing), class:"btn btn-success game_btn"%>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+    <% end %>
+    <!--gamecontent-->
+  </div>
+</div>
+<div id="game_player_counting_5" class="tab-pane">
+  <div class="content_heading">90分ゲーム</div>
+  <div class="col-xs-12">
+    <!--gamecontent-->
+    <% @listings_game_player_5.reverse_each do |listing|%>
+    <div class="col-xs-12 game-content">
+      <div class="col-xs-12">
+          <%if listing.image.nil?%>
+          <div class="col-xs-2 col-xs-adjust img_border" style="background-image: url('https://placehold.jp/85x85.png');">
+          <%else%>
+          <div class="col-xs-2 col-xs-adjust img_border" style="background-image: url(<%=listing.image%>);">
+          <%end%>
+        </div>
+        <div class="col-xs-9 col-xs-adjust col-xs-offset-1">
+          <div class="col-xs-12 col-xs-adjust">
+            <div class="game-title col-xs-10 col-xs-adjust">
+              <%=link_to listing_path(listing) do%>
+              <%= listing.game_title%>
+              <% end %>
+            </div>
+            <div class=" col-xs-2 col-xs-adjust" style="text-align:right!important;">
+              <span class="game-updated"><%= listing.updated_at.strftime('%m/%d') %>更新</span>
+            </div>
+          </div>
+          <div class="col-xs-12 col-xs-adjust"style="margin-top:8px;">
+            <div class="game-valuation col-xs-3 col-xs-adjust"><%= listing.valuation %></div>
+            <div class="game-status col-xs-9 col-xs-adjust">
+              <% if listing.status_have == "1" %><span class="game_badges btn-primary"><i class="glyphicon glyphicon-briefcase"></i>持ってる</span><% end %>
+              <% if listing.status_verygood == "1" %><span class="game_badges btn-danger"><i class="glyphicon glyphicon-thumbs-up"></i>おススメ</span><% end %>
+              <% if listing.status_can_instruction == "1" %><span class="game_badges btn-warning"><i class="glyphicon glyphicon-volume-up"></i>インスト可</span><% end %>
+              <% if listing.status_want == "1" %><span class="game_badges btn-success"><i class="glyphicon glyphicon-fire"></i>遊びたい</span><% end %>
+            </div>
+            <div class="col-xs-12 col-xs-adjust" style="margin-top:5.4px;">
+              <div class="col-xs-10 col-xs-adjust game-description">
+                <%if listing.game_content.present?%>感想：<%= listing.game_content%><%else%>
+                <span style="color:white!important;">感想は未登録です</span><%end%>
+              </div>
+              <div class="col-xs-2 col-xs-adjust text_right">
+                <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default game_btn"%><% end %>
+                <%=link_to "詳細", listing_path(listing), class:"btn btn-success game_btn"%>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+    <% end %>
+    <!--gamecontent-->
+  </div>
+</div>
+<div id="game_player_counting_6" class="tab-pane">
+  <div class="content_heading">a</div>
+  <div class="col-xs-12">
+    <!--gamecontent-->
+    <% @listings_game_player_6.reverse_each do |listing|%>
+    <div class="col-xs-12 game-content">
+      <div class="col-xs-12">
+          <%if listing.image.nil?%>
+          <div class="col-xs-2 col-xs-adjust img_border" style="background-image: url('https://placehold.jp/85x85.png');">
+          <%else%>
+          <div class="col-xs-2 col-xs-adjust img_border" style="background-image: url(<%=listing.image%>);">
+          <%end%>
+        </div>
+        <div class="col-xs-9 col-xs-adjust col-xs-offset-1">
+          <div class="col-xs-12 col-xs-adjust">
+            <div class="game-title col-xs-10 col-xs-adjust">
+              <%=link_to listing_path(listing) do%>
+              <%= listing.game_title%>
+              <% end %>
+            </div>
+            <div class=" col-xs-2 col-xs-adjust" style="text-align:right!important;">
+              <span class="game-updated"><%= listing.updated_at.strftime('%m/%d') %>更新</span>
+            </div>
+          </div>
+          <div class="col-xs-12 col-xs-adjust"style="margin-top:8px;">
+            <div class="game-valuation col-xs-3 col-xs-adjust"><%= listing.valuation %></div>
+            <div class="game-status col-xs-9 col-xs-adjust">
+              <% if listing.status_have == "1" %><span class="game_badges btn-primary"><i class="glyphicon glyphicon-briefcase"></i>持ってる</span><% end %>
+              <% if listing.status_verygood == "1" %><span class="game_badges btn-danger"><i class="glyphicon glyphicon-thumbs-up"></i>おススメ</span><% end %>
+              <% if listing.status_can_instruction == "1" %><span class="game_badges btn-warning"><i class="glyphicon glyphicon-volume-up"></i>インスト可</span><% end %>
+              <% if listing.status_want == "1" %><span class="game_badges btn-success"><i class="glyphicon glyphicon-fire"></i>遊びたい</span><% end %>
+            </div>
+            <div class="col-xs-12 col-xs-adjust" style="margin-top:5.4px;">
+              <div class="col-xs-10 col-xs-adjust game-description">
+                <%if listing.game_content.present?%>感想：<%= listing.game_content%><%else%>
+                <span style="color:white!important;">感想は未登録です</span><%end%>
+              </div>
+              <div class="col-xs-2 col-xs-adjust text_right">
+                <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default game_btn"%><% end %>
+                <%=link_to "詳細", listing_path(listing), class:"btn btn-success game_btn"%>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+    <% end %>
+    <!--gamecontent-->
+  </div>
+</div>
+
+
+
+
+
+
+<div id="want_play_game" class="tab-pane">
+  <div class="content_heading">a</div>
+  <div class="col-xs-12">
+    <!--gamecontent-->
+    <% @listings_want.reverse_each do |listing|%>
+    <div class="col-xs-12 game-content">
+      <div class="col-xs-12">
+          <%if listing.image.nil?%>
+          <div class="col-xs-2 col-xs-adjust img_border" style="background-image: url('https://placehold.jp/85x85.png');">
+          <%else%>
+          <div class="col-xs-2 col-xs-adjust img_border" style="background-image: url(<%=listing.image%>);">
+          <%end%>
+        </div>
+        <div class="col-xs-9 col-xs-adjust col-xs-offset-1">
+          <div class="col-xs-12 col-xs-adjust">
+            <div class="game-title col-xs-10 col-xs-adjust">
+              <%=link_to listing_path(listing) do%>
+              <%= listing.game_title%>
+              <% end %>
+            </div>
+            <div class=" col-xs-2 col-xs-adjust" style="text-align:right!important;">
+              <span class="game-updated"><%= listing.updated_at.strftime('%m/%d') %>更新</span>
+            </div>
+          </div>
+          <div class="col-xs-12 col-xs-adjust"style="margin-top:8px;">
+            <div class="game-valuation col-xs-3 col-xs-adjust"><%= listing.valuation %></div>
+            <div class="game-status col-xs-9 col-xs-adjust">
+              <% if listing.status_have == "1" %><span class="game_badges btn-primary"><i class="glyphicon glyphicon-briefcase"></i>持ってる</span><% end %>
+              <% if listing.status_verygood == "1" %><span class="game_badges btn-danger"><i class="glyphicon glyphicon-thumbs-up"></i>おススメ</span><% end %>
+              <% if listing.status_can_instruction == "1" %><span class="game_badges btn-warning"><i class="glyphicon glyphicon-volume-up"></i>インスト可</span><% end %>
+              <% if listing.status_want == "1" %><span class="game_badges btn-success"><i class="glyphicon glyphicon-fire"></i>遊びたい</span><% end %>
+            </div>
+            <div class="col-xs-12 col-xs-adjust" style="margin-top:5.4px;">
+              <div class="col-xs-10 col-xs-adjust game-description">
+                <%if listing.game_content.present?%>感想：<%= listing.game_content%><%else%>
+                <span style="color:white!important;">感想は未登録です</span><%end%>
+              </div>
+              <div class="col-xs-2 col-xs-adjust text_right">
+                <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default game_btn"%><% end %>
+                <%=link_to "詳細", listing_path(listing), class:"btn btn-success game_btn"%>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+    <% end %>
+    <!--gamecontent-->
+  </div>
+</div>
