@@ -20,7 +20,6 @@
                       <%if user_signed_in?%>
                       <li class="active"><%= link_to "#{current_user.name}のプロフィール", show_users_path(current_user)%></li>
                       <li><%= link_to 'プロフィール編集', edit_user_registration_path%></li>
-                      <li><%= link_to 'ボドゲを追加', new_listing_path%></li>
 
                       <% else %>
                       <li class="active"><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></li>

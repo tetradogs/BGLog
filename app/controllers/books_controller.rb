@@ -41,7 +41,8 @@ def search
       end
 
       #searchの変数
-      @listing = current_user.listings.build
+      #@listing = current_user.listings.build
+      @listing = Listing.new
 
 
       #検索したワードの取得

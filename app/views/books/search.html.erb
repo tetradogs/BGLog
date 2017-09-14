@@ -30,30 +30,24 @@
                         <%unless Listing.where(game_title: "#{book.title}").count == 0%>
                         <span class="game_registration"><%= Listing.where(game_title: "#{book.title}").count%>人が登録中</span>
                         <% end %>
-                        <%= form_for @listing do |f| %>
-                          <%= f.hidden_field :game_title, value: "#{book.title}" %>
-                          <%= f.hidden_field :image, value: "#{book.image_url}" %>
-                        </div>
-                      <div class="col-xs-3">
-                          <% if current_user.listings.where(game_title: "#{book.title}").present?%>
-                          登録済みです。<% current_user.listings.where(game_title: "#{book.title}").each do |f|%>
-                          <%=link_to "編集する",edit_listing_path("#{f.id}"),class:"btn btn-default",style:"width:100%;"%>
-                          <%= link_to "Amazonで見る",book.url,class: "btn btn-danger btn_game_detail"%>
-                          <%end%>
-                          <%else%>
-                            <%= f.submit "登録する" ,class: "btn btn-default btn_game_detail"%>
-                            <%= link_to "Amazonで見る",book.url,class: "btn btn-danger btn_game_detail"%>
-                          <%end%>
-                        <% end %>
-                    </div>
+                          <%= form_for @listing do |f| %>
+                              <%= f.hidden_field :game_title, value: "#{book.title}" %>
+                              <%= f.hidden_field :image, value: "#{book.image_url}" %>
+                            </div>
+                            <div class="col-xs-3">
+                                <% if current_user.listings.where(game_title: "#{book.title}").present?%>
+                                登録済みです。<% current_user.listings.where(game_title: "#{book.title}").each do |f|%>
+                                <%=link_to "編集する",edit_listing_path("#{f.id}"),class:"btn btn-default",style:"width:100%;"%>
+                                <%= link_to "Amazonで見る",book.url,class: "btn btn-danger btn_game_detail"%>
+                                <%end%>
+                                <%else%>
+                                  <%= f.submit "登録する" ,class: "btn btn-default btn_game_detail"%>
+                                  <%= link_to "Amazonで見る",book.url,class: "btn btn-danger btn_game_detail"%>
+                                <%end%>
+                          <% end %>
+                      </div>
                 </div>
-          <% end %>
-
-          <% else %>
-          <%= form_for @listing do |f| %>
-          <%= f.text_field :game_title ,value: "#{@search_word}"%><br>
-          <%=f.submit "Amazonでは見つからなかったのでそのまま追加する", class:"btn btn-dafault"%>
-          <%end%>
+                <% end %>
 
         <% end %>
 

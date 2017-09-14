@@ -29,7 +29,9 @@
           </div>
         </div>
         <div class="col-xs-8 col-xs-adjust">
-          <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default"%><% end %>
+          <%if user_signed_in?%>
+            <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default game_btn"%><% end %>
+          <%end%>
           <%=link_to "詳細", listing_path(listing), class:"btn btn-success"%>
         </div>
       </div>
@@ -68,7 +70,9 @@
           </div>
         </div>
         <div class="col-xs-8 col-xs-adjust">
-          <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default"%><% end %>
+          <%if user_signed_in?%>
+            <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default game_btn"%><% end %>
+          <%end%>
           <%=link_to "詳細", listing_path(listing), class:"btn btn-success"%>
         </div>
       </div>
@@ -107,7 +111,9 @@
           </div>
         </div>
         <div class="col-xs-8 col-xs-adjust">
-          <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default"%><% end %>
+          <%if user_signed_in?%>
+            <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default game_btn"%><% end %>
+          <%end%>
           <%=link_to "詳細", listing_path(listing), class:"btn btn-success"%>
         </div>
       </div>
@@ -146,7 +152,9 @@
           </div>
         </div>
         <div class="col-xs-8 col-xs-adjust">
-          <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default"%><% end %>
+          <%if user_signed_in?%>
+            <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default game_btn"%><% end %>
+          <%end%>
           <%=link_to "詳細", listing_path(listing), class:"btn btn-success"%>
         </div>
       </div>
@@ -185,7 +193,9 @@
           </div>
         </div>
         <div class="col-xs-8 col-xs-adjust">
-          <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default"%><% end %>
+          <%if user_signed_in?%>
+            <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default game_btn"%><% end %>
+          <%end%>
           <%=link_to "詳細", listing_path(listing), class:"btn btn-success"%>
         </div>
       </div>
@@ -241,7 +251,9 @@
           </div>
         </div>
         <div class="col-xs-8 col-xs-adjust">
-          <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default"%><% end %>
+          <%if user_signed_in?%>
+            <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default game_btn"%><% end %>
+          <%end%>
           <%=link_to "詳細", listing_path(listing), class:"btn btn-success"%>
         </div>
       </div>
@@ -280,7 +292,9 @@
           </div>
         </div>
         <div class="col-xs-8 col-xs-adjust">
-          <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default"%><% end %>
+          <%if user_signed_in?%>
+            <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default game_btn"%><% end %>
+          <%end%>
           <%=link_to "詳細", listing_path(listing), class:"btn btn-success"%>
         </div>
       </div>
@@ -326,7 +340,9 @@
                 <span style="color:white!important;">感想は未登録です</span><%end%>
               </div>
               <div class="col-xs-2 col-xs-adjust text_right">
-                <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default game_btn"%><% end %>
+                <%if user_signed_in?%>
+                  <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default game_btn"%><% end %>
+                <%end%>
                 <%=link_to "詳細", listing_path(listing), class:"btn btn-success game_btn"%>
               </div>
             </div>
@@ -376,7 +392,9 @@
                 <span style="color:white!important;">感想は未登録です</span><%end%>
               </div>
               <div class="col-xs-2 col-xs-adjust text_right">
-                <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default game_btn"%><% end %>
+                <%if user_signed_in?%>
+                  <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default game_btn"%><% end %>
+                <%end%>
                 <%=link_to "詳細", listing_path(listing), class:"btn btn-success game_btn"%>
               </div>
             </div>
@@ -426,7 +444,9 @@
                 <span style="color:white!important;">感想は未登録です</span><%end%>
               </div>
               <div class="col-xs-2 col-xs-adjust text_right">
-                <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default game_btn"%><% end %>
+                <%if user_signed_in?%>
+                  <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default game_btn"%><% end %>
+                <%end%>
                 <%=link_to "詳細", listing_path(listing), class:"btn btn-success game_btn"%>
               </div>
             </div>
@@ -482,7 +502,9 @@
                 <span style="color:white!important;">感想は未登録です</span><%end%>
               </div>
               <div class="col-xs-2 col-xs-adjust text_right">
-                <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default game_btn"%><% end %>
+                <%if user_signed_in?%>
+                  <%if current_user.id == listing.user_id %><%=link_to "Edit", edit_listing_path(listing), class:"btn btn-default game_btn"%><% end %>
+                <%end%>
                 <%=link_to "詳細", listing_path(listing), class:"btn btn-success game_btn"%>
               </div>
             </div>

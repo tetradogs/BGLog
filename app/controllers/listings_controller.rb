@@ -7,9 +7,9 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
   end
 
-  def new
-        @listing =current_user.listings.build
-  end
+  #def new
+      #  @listing =current_user.listings.build
+  #end
 
   def create
         @listing =current_user.listings.build(listing_params)
@@ -48,7 +48,7 @@ class ListingsController < ApplicationController
   end
 
     def search
-      @articles = Listing.search(params[:qkeyword])
+      @articles = Listing.search(params[:keyword])
     end
 
   private

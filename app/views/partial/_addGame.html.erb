@@ -120,7 +120,9 @@
             </div>
           <div class="submit-fixed content-fixed"><%=f.submit "投稿する"%></div>
         <% end %>
+        <%if @listing.present?%>
         <%= link_to "削除", listing_path(@listing), :method => :delete ,class:"btn btn-danger",data: { confirm: '削除しますか？' }%>
+        <%end%>
         <%= render "partial/newCheckbutton"%>
       </div>
   </div>

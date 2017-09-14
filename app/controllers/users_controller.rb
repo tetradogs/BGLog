@@ -103,12 +103,14 @@ class UsersController < ApplicationController
 
     #本日更新した情報をtweetする（10分前：10.minutes.ago）
       #updated_tweet = current_user.listings.where(updated_at: (10.minutes.ago)..(Time.now))
+      if user_signed_in?
       updated_tweet = current_user.listings.where(updated_at: Time.now.all_day)
         if updated_tweet.present?
           @updated_tweet = updated_tweet
         else
           @updated_tweet = nil
         end
+      end
     #追加されたり回数が増えたものをツイートするための情報取得=>ゲームカウントだけが増えたものを設定できなくなった…
       #本日追加されたもの
         #created_tweet = current_user.listings.where(created_at: Time.now.all_day)
